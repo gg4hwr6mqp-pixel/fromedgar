@@ -9,50 +9,44 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #ff5f9e, #ffc1d9);
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    animation: fadeIn 1.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    overflow: hidden;
 }
 
 .container {
     max-width: 600px;
-    padding: 30px;
+    padding: 20px;
 }
 
 button {
-    padding: 12px 25px;
+    padding: 12px 30px;
+    border-radius: 25px;
     border: none;
-    border-radius: 30px;
     background: white;
-    color: #ff4f8b;
-    font-size: 16px;
+    color: #ff4f81;
+    font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 button:hover {
     transform: scale(1.05);
 }
 
-.hidden {
-    display: none;
+.fade {
+    opacity: 0;
+    transition: opacity 1.2s ease;
 }
 
-.fadeText {
-    margin-top: 20px;
-    line-height: 1.6;
-    animation: fadeIn 1s ease-in;
+.show {
+    opacity: 1;
 }
 </style>
 </head>
@@ -61,64 +55,58 @@ button:hover {
 
 <div class="container">
 
-<p style="font-size:14px; opacity:0.8; letter-spacing:2px;">
-14 February • Just For You
-</p>
-
+<h4>14 February · Just For You</h4>
 <h1>Happy Valentine’s Day 🤍</h1>
 
-<p>
-I made this just for you.  
-Not because I had to.  
-But because you matter to me more than you probably realize.
+<p id="line1" class="fade">
+I didn’t make this because I had to…
 </p>
 
-<button onclick="openBox()">Open</button>
-
-<div id="longText" class="hidden fadeText">
-<p>
-From the moment we started talking, something felt different.  
-Even when you're tired, even when you're quiet, even when the day feels heavy —  
-I still choose you.
+<p id="line2" class="fade">
+I made it because you matter to me more than you realize.
 </p>
 
-<p>
-I love the way you tell stories.  
-I love the way your voice changes when you're excited.  
-I love that even on your tired days, you still say you like spending time with me.
+<p id="line3" class="fade">
+Even when you're tired. Even when you're quiet.
+Even when the day feels heavy — I still choose you.
 </p>
 
-<p>
-Distance doesn’t scare me.  
-Time zones don’t scare me.  
-Because what we have isn’t about being close physically —  
-it’s about choosing each other again and again.
+<p id="line4" class="fade">
+Distance doesn’t scare me. Time zones don’t scare me.
+Because what we have is about choosing each other again and again.
 </p>
 
-<p>
-If I could be there right now,  
-I’d just sit next to you,  
-hold your hand gently,  
-and let the world slow down for a minute.
-</p>
+<h2 id="final" class="fade">
+I always will. ❤️
+</h2>
 
-<button onclick="finalMessage()">Still choosing you.</button>
-
-<div id="finalText" class="hidden fadeText">
-<h2>I always will. ❤️</h2>
-</div>
-
-</div>
+<button onclick="nextStep()" id="btn">Open</button>
 
 </div>
 
 <script>
-function openBox() {
-    document.getElementById("longText").classList.remove("hidden");
-}
+let step = 0;
 
-function finalMessage() {
-    document.getElementById("finalText").classList.remove("hidden");
+function nextStep() {
+    step++;
+
+    if(step === 1) {
+        document.getElementById("line1").classList.add("show");
+        document.getElementById("btn").innerText = "Keep Going";
+    }
+    else if(step === 2) {
+        document.getElementById("line2").classList.add("show");
+    }
+    else if(step === 3) {
+        document.getElementById("line3").classList.add("show");
+    }
+    else if(step === 4) {
+        document.getElementById("line4").classList.add("show");
+    }
+    else if(step === 5) {
+        document.getElementById("final").classList.add("show");
+        document.getElementById("btn").style.display = "none";
+    }
 }
 </script>
 
