@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ff5f9e, #ffc1d9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(0,0,0,0.35);
+    padding: 50px;
+    max-width: 800px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 30px;
+    font-size: 17px;
+    border: none;
+    border-radius: 40px;
+    background: white;
+    color: #ff5f9e;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffe3ec;
+}
+
+.hidden {
+    display: none;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine’s Day ❤️</h1>
+
+    <p>
+    Happy Valentine’s Day, my favorite person.
+    <br><br>
+    Even though we’re miles apart, I never feel like you’re truly far from me.
+    Every conversation, every random moment, every time we laugh or even miss each other
+    reminds me how lucky I am to have you.
+    <br><br>
+    Distance isn’t always easy. There are tired days, busy days,
+    and moments when we both just want to be in the same place.
+    But somehow, even through all of that, we still choose each other.
+    And that means everything to me.
+    </p>
+
+    <button onclick="showMessage()">Read The Rest</button>
+
+    <div id="message" class="hidden">
+        <p>
+        I love how we can talk about anything — from the most random topics
+        to the deeper things we don’t tell everyone.
+        I love that even when you’re exhausted,
+        you still make time for me.
+        <br><br>
+        Sometimes I wish I could just teleport to you.
+        Not for anything dramatic.
+        Just to sit next to you.
+        To hold you.
+        To feel your warmth without a screen between us.
+        <br><br>
+        I don’t just look forward to the exciting moments with you.
+        I look forward to the quiet ones too.
+        The simple ones.
+        The ones where we’re just existing together.
+        <br><br>
+        No matter how many kilometers are between us right now,
+        I’m still choosing you.
+        And I can’t wait for the day distance isn’t something we even have to think about anymore.
+        <br><br>
+        I’m really grateful you’re mine.
+        ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+</script>
+
+</body>
+</html>
