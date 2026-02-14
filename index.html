@@ -2,26 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>For You 🤍</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
     font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    background: linear-gradient(135deg, #1c1c2e, #302b63);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    overflow: hidden;
 }
 
 .container {
-    max-width: 600px;
-    padding: 20px;
+    max-width: 750px;
+    padding: 40px;
 }
 
 button {
@@ -29,10 +28,10 @@ button {
     border-radius: 25px;
     border: none;
     background: white;
-    color: #ff4f81;
+    color: #302b63;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
     transition: 0.3s ease;
 }
 
@@ -43,10 +42,24 @@ button:hover {
 .fade {
     opacity: 0;
     transition: opacity 1.2s ease;
+    margin-top: 20px;
 }
 
 .show {
     opacity: 1;
+}
+
+.longtext {
+    display: none;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease forwards;
+    text-align: left;
+    line-height: 1.7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -55,32 +68,114 @@ button:hover {
 
 <div class="container">
 
-<h4>14 February · Just For You</h4>
-<h1>Happy Valentine’s Day 🤍</h1>
+<h4>Before You Read This…</h4>
+<h1>Just One Thing 🤍</h1>
 
-<p id="line1" class="fade">
-I didn’t make this because I had to…
+<p id="t1" class="fade">Don’t rush this.</p>
+<p id="t2" class="fade">Read it slowly.</p>
+<p id="t3" class="fade">Because I didn’t write this casually.</p>
+
+<button onclick="nextStep()" id="btn">Continue</button>
+
+<div id="finalLetter" class="longtext">
+
+<h2>Okay… here it is.</h2>
+
+<p>
+I made this for you because sometimes words get lost in normal conversations.
+Sometimes messages get buried between tired replies, busy days, and different time zones.
+But what I feel for you isn’t something I want to leave half-said.
 </p>
 
-<p id="line2" class="fade">
-I made it because you matter to me more than you realize.
+<p>
+You came into my life unexpectedly, but somehow you stayed in my thoughts intentionally.
+And that difference matters.
+Because being curious about someone is easy.
+But choosing someone, even on their quiet days, even on their low-energy days — that’s different.
 </p>
 
-<p id="line3" class="fade">
-Even when you're tired. Even when you're quiet.
-Even when the day feels heavy — I still choose you.
+<p>
+I notice the little things about you.
+The way your tone changes when you're excited.
+The way you talk when you're tired.
+The way you still try to show up even when you don’t have much energy left.
+You probably think it’s small.
+It’s not small to me.
 </p>
 
-<p id="line4" class="fade">
-Distance doesn’t scare me. Time zones don’t scare me.
-Because what we have is about choosing each other again and again.
+<p>
+Distance doesn’t make me doubt this.
+It doesn’t make it weaker.
+If anything, it makes it clearer.
+Because when there’s distance, you don’t stay because it’s convenient.
+You stay because you actually want to.
+And I want to.
 </p>
 
-<h2 id="final" class="fade">
-I always will. ❤️
-</h2>
+<p>
+I don’t just like the fun parts of you.
+I like the calm parts.
+The tired parts.
+The slightly moody parts.
+The quiet parts.
+The soft parts you don’t always show loudly.
+</p>
 
-<button onclick="nextStep()" id="btn">Open</button>
+<p>
+And I also want to say something honestly.
+There was a moment when I pulled away.
+When I acted distant because I felt pushed aside.
+You were busy, you were snowboarding, you were living your day —
+and instead of telling you how I felt, I chose silence.
+</p>
+
+<p>
+That wasn’t because I didn’t care.
+It was actually because I cared too much.
+And I didn’t know how to say, “Hey… I miss you.”
+Without sounding needy.
+</p>
+
+<p>
+If that made you feel sad, I’m sorry.
+Not in a dramatic way.
+Just in a real way.
+You didn’t deserve to feel like I disappeared on you.
+</p>
+
+<p>
+I’m still learning how to handle my feelings without shutting down.
+But one thing hasn’t changed —
+I never stopped choosing you.
+Even in silence.
+Even when I acted quiet.
+</p>
+
+<p>
+If I were next to you right now, I wouldn’t try to impress you.
+I wouldn’t rush anything.
+I’d just sit close.
+Let my hand rest against yours.
+Maybe pull you in slowly and just exist there for a moment.
+No performance.
+No pressure.
+Just us.
+</p>
+
+<p>
+Out of all the randomness in this world,
+out of all the conversations that could’ve meant nothing,
+I’m glad ours didn’t.
+</p>
+
+<p>
+And I’m not here because it’s exciting.
+I’m here because it feels right.
+</p>
+
+<h2>I still choose you. Every time. ❤️</h2>
+
+</div>
 
 </div>
 
@@ -89,24 +184,17 @@ let step = 0;
 
 function nextStep() {
     step++;
-
-    if(step === 1) {
-        document.getElementById("line1").classList.add("show");
-        document.getElementById("btn").innerText = "Keep Going";
-    }
-    else if(step === 2) {
-        document.getElementById("line2").classList.add("show");
-    }
-    else if(step === 3) {
-        document.getElementById("line3").classList.add("show");
-    }
+    if(step === 1) show("t1");
+    else if(step === 2) show("t2");
+    else if(step === 3) show("t3");
     else if(step === 4) {
-        document.getElementById("line4").classList.add("show");
-    }
-    else if(step === 5) {
-        document.getElementById("final").classList.add("show");
+        document.getElementById("finalLetter").style.display = "block";
         document.getElementById("btn").style.display = "none";
     }
+}
+
+function show(id){
+    document.getElementById(id).classList.add("show");
 }
 </script>
 
